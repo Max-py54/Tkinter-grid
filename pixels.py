@@ -61,8 +61,8 @@ if __name__ == "__main__":
 
     window = tk.Tk()
 
-    lines = 15
-    columns = 15
+    lines = 5
+    columns = 5
 
     height = 600
     width = 600
