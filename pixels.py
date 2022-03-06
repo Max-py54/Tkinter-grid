@@ -48,33 +48,27 @@ class Grid():
         if self.pixels != []:
             for i, px in enumerate(self.pixels):
                 if px.line == line and px.column == column:
-                    if px.colour == colour:
-                        px.delete()
-                        self.pixels.pop(i)
-                    else:
                     px.delete()
                     self.pixels.pop(i)
-                    self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
-                else:
-                    self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
-        else:
+                    break
             self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
-        print(self.pixels)
+        else:
+            if colour != self.colour:
+                self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
+            
 
 if __name__ == "__main__":
 
     window = tk.Tk()
 
-    lines = 5
-    columns = 5
+    lines = 15
+    columns = 15
 
     height = 600
     width = 600
 
     my_grid = Grid(window, lines, columns, width, height)
 
-    my_grid.pixel(0, 0, "red")
-    my_grid.pixel(1, 1, "blue")
-    my_grid.pixel(2, 2, "green")
+    my_grid.pixel(0, 1, "red")
     
     window.mainloop()
