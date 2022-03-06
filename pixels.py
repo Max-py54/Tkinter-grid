@@ -74,7 +74,7 @@ if __name__ == "__main__":
     my_grid = Grid(window, lines, columns, width, height)
 
     my_grid.pixel(0, 0, "red")
-    my_grid.canvas.after(1000, lambda: my_grid.pixel(1, 1, "blue"))
-    my_grid.canvas.after(1000, lambda: my_grid.pixel(2, 2, "green"))
+    my_grid.pixel(1, 1, "blue")
+    my_grid.pixel(2, 2, "green")
     
     window.mainloop()
