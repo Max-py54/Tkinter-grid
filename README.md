@@ -16,4 +16,4 @@ You don't need to create a canvas on your Tkinter window, the `Grid()` class doe
 - `colour` : your grid's colour (default is white)
 
 ### Methods
-- `Grid.pixel(line:int, column:int, colour:str="black", after_time:int=0)`
+- `Grid.pixel(line:int, column:int, colour:str="black")`
