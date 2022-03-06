@@ -1,3 +1,5 @@
+"""A module to help creating and managing a grid wit pixels."""
+
 import tkinter as tk
 
 class Pixel():
@@ -27,6 +29,8 @@ class Pixel():
         self.canvas.delete(self.pixel)
 
 class Grid():
+    """Grid(window, lines:int, columns:int, width:int, height:int, colour:str="white")
+Creates a grid."""
     def __init__(self, window, lines:int, columns:int, width:int, height:int, colour:str="white"):
         self.lines = lines
         self.columns = columns
@@ -45,6 +49,8 @@ class Grid():
         self.pixels = []
 
     def pixel(self, line:int, column:int, colour:str="black"):
+        """Grid.pixel(line:int, column:int, colour:str="black")
+Changes a specific pixel's colour."""
         if self.pixels != []:
             for i, px in enumerate(self.pixels):
                 if px.line == line and px.column == column:
@@ -61,8 +67,8 @@ if __name__ == "__main__":
 
     window = tk.Tk()
 
-    lines = 5
-    columns = 5
+    lines = 15
+    columns = 15
 
     height = 600
     width = 600
