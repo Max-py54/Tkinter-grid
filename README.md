@@ -1,4 +1,5 @@
 # Tkinter-grid
+---
 A grid for Tkinter, Python. You can control every box in the grid (useful for simple graphics in Tkinter).
 
 ## Pixels
