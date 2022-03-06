@@ -44,23 +44,20 @@ class Grid():
 
         self.pixels = []
 
-    def pixel(self, line:int, column:int, colour:str="black", after_time:int=0):
+    def pixel(self, line:int, column:int, colour:str="black"):
         if self.pixels != []:
             for i, px in enumerate(self.pixels):
-                if px.line == line and px.column == column and px.colour != colour:
-                    print("1")
+                if px.line == line and px.column == column:
+                    if px.colour == colour:
+                        px.delete()
+                        self.pixels.pop(i)
+                    else:
                     px.delete()
                     self.pixels.pop(i)
-                    self.canvas.after(after_time, lambda: self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour)))
-                elif px.colour == self.colour:
-                    print("2")
-                    px.delete()
-                    self.pixels.pop(i)
+                    self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
                 else:
-                    print("3")
                     self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
         else:
-            print("4")
             self.pixels.append(Pixel(self.canvas, line, column, self.width_line, self.width_column, colour))
         print(self.pixels)
 
@@ -77,7 +74,7 @@ if __name__ == "__main__":
     my_grid = Grid(window, lines, columns, width, height)
 
     my_grid.pixel(0, 0, "red")
-    my_grid.pixel(1, 1, "blue")
-    my_grid.pixel(2, 2, "green")
+    my_grid.canvas.after(1000, lambda: my_grid.pixel(1, 1, "blue"))
+    my_grid.canvas.after(1000, lambda: my_grid.pixel(2, 2, "green"))
     
     window.mainloop()
